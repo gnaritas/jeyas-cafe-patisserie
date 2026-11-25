@@ -1,0 +1,9 @@
+{
+  "name": "jeyas-cafe-patisserie",
+  "version": "1.0.0",
+  "private": true,
+  "description": "JEYAS Café & Pâtisserie (1710 R Street, Suite 170, Sacramento, CA 95811) — opening-soon French bakery & crêperie site (websites lane)",
+  "main": "server.js",
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node server.js" }
+}

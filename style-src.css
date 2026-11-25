@@ -1,0 +1,210 @@
+/* JEYAS Café & Pâtisserie — Ice Blocks, Midtown Sacramento.
+   Patisserie vitrine identity: cream paper, espresso ink, antique-gold double hairlines,
+   bordeaux accents, dotted-leader carte. Zero JS. Hand-rolled. No third-party fonts. */
+:root{
+  --creme:#f7f1e4; --creme2:#efe5d1; --paper:#fffdf6;
+  --ink:#241c15; --ink2:#4a3c2e; --ink3:#1d1610;
+  --or:#b0893c; --or2:#8a6a2a; --hair:#d9c9a5;
+  --bordeaux:#7d2e29; --bordeaux2:#a34539;
+  --mute:#6d5f4c; --noir:#221a15;
+  --serif:Didot,"Bodoni MT","Playfair Display","Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:"Helvetica Neue",Helvetica,Arial,"Segoe UI",sans-serif;
+  --mono:Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--creme);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;-webkit-text-size-adjust:100%}
+img,iframe{max-width:100%}
+a{color:var(--bordeaux)}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.06;margin:0 0 .7rem}
+address{font-style:normal}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink3);color:var(--creme);padding:.6rem 1rem;z-index:50;font-weight:700}
+.skip:focus{left:1rem;top:1rem}
+
+/* header — paper band, double gold rule underneath */
+header.site{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.85rem clamp(1rem,4vw,2.5rem);border-bottom:3px double var(--or);background:var(--paper);position:relative}
+.brand{font-family:var(--serif);font-size:1.5rem;letter-spacing:.28em;color:var(--ink);text-decoration:none;line-height:1;display:flex;flex-direction:column;gap:.28rem;padding-left:.1em}
+.brand span{font-family:var(--mono);font-size:.55rem;letter-spacing:.34em;color:var(--bordeaux);font-weight:700;text-transform:uppercase}
+nav.links{display:flex;gap:1.15rem;align-items:center;margin-left:auto;flex-wrap:wrap}
+nav.links a{color:var(--ink);text-decoration:none;font-size:.84rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;padding:.35rem 0;border-bottom:2px solid transparent}
+nav.links a:hover,nav.links a:focus{color:var(--bordeaux);border-bottom-color:var(--or)}
+nav.links a.btn{border-bottom:none}
+.navtoggle{position:absolute;opacity:0;width:1px;height:1px}
+.navbtn{display:none;margin-left:auto;cursor:pointer;padding:.45rem .55rem;border:1.5px solid var(--or);border-radius:4px;background:transparent}
+.navbtn i{display:block;width:20px;height:2px;background:var(--ink);position:relative}
+.navbtn i::before,.navbtn i::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--ink)}
+.navbtn i::before{top:-6px}.navbtn i::after{top:6px}
+
+/* buttons */
+.btn{display:inline-block;background:var(--bordeaux);color:var(--creme);font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:.08em;font-size:.84rem;padding:.78rem 1.35rem;border-radius:2px;border:2px solid var(--bordeaux);cursor:pointer}
+.btn:hover,.btn:focus{background:var(--ink3);border-color:var(--ink3);color:var(--creme)}
+.btn-big{font-size:.92rem;padding:.95rem 1.7rem}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover,.btn-ghost:focus{background:var(--ink3);color:var(--creme);border-color:var(--ink3)}
+.btn-sm{padding:.5rem .9rem;font-size:.78rem}
+p.cta{margin:1.4rem 0 .2rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+
+/* hero — the vitrine window */
+.hero{position:relative;padding:clamp(2.6rem,8vw,5.5rem) clamp(1rem,4vw,2.5rem) clamp(2.2rem,6vw,4.5rem);max-width:1150px;margin:0 auto}
+.vitrine{position:relative;border:1px solid var(--or);background:var(--paper);padding:clamp(2.4rem,7vw,4.8rem) clamp(1.3rem,5vw,4rem);text-align:center;box-shadow:0 14px 40px rgba(66,49,28,.09)}
+.vitrine::before{content:"";position:absolute;inset:7px;border:1px solid var(--hair);pointer-events:none}
+.kicker{font-family:var(--mono);color:var(--or2);letter-spacing:.24em;font-size:.78rem;text-transform:uppercase;margin:0 0 1.1rem}
+.hero h1{font-size:clamp(3.6rem,13vw,7.4rem);letter-spacing:.1em;padding-left:.1em;margin:0 0 .35rem;color:var(--ink)}
+.bsub{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,4vw,2rem);color:var(--bordeaux);letter-spacing:.14em;margin:0 0 1.3rem}
+.lead{font-size:1.12rem;color:var(--ink2);max-width:40rem;margin:0 auto .5rem}
+.stamp{position:absolute;top:clamp(1.2rem,4vw,2.6rem);right:clamp(1rem,4vw,2.6rem);transform:rotate(7deg);border:2.5px dashed var(--bordeaux);color:var(--bordeaux);font-family:var(--mono);font-weight:700;font-size:.9rem;letter-spacing:.18em;padding:.6rem .9rem;border-radius:6px;background:rgba(125,46,41,.06);z-index:2}
+
+/* carte band (home) — order slip panel + pillars */
+.carteband{display:grid;grid-template-columns:minmax(300px,430px) 1fr;gap:clamp(1.5rem,4vw,3rem);padding:0 clamp(1rem,4vw,2.5rem) clamp(2.4rem,6vw,4.2rem);max-width:1150px;margin:0 auto;align-items:start}
+.carte{background:var(--paper);border:1px solid var(--or);outline:5px solid var(--paper);box-shadow:0 0 0 1px var(--or),0 14px 34px rgba(66,49,28,.12);padding:1.5rem 1.6rem 1.3rem;min-width:0}
+.cartehdr{font-family:var(--serif);text-align:center;font-size:1.08rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:0 0 1rem}
+.cartehdr::before,.cartehdr::after{content:"◆";color:var(--or);font-size:.72em;margin:0 .6em;vertical-align:.1em}
+ul.crows{list-style:none;margin:0;padding:0;font-size:.98rem}
+ul.crows li{display:flex;align-items:baseline;gap:.6rem;padding:.42rem 0;min-width:0}
+ul.crows span{flex:1 1 auto;min-width:0;font-weight:700;color:var(--ink)}
+ul.crows i{flex:0 1 60px;min-width:14px;border-bottom:2px dotted var(--hair);transform:translateY(-4px)}
+ul.crows b{flex:0 1 auto;font-family:var(--serif);font-weight:700;font-style:italic;color:var(--bordeaux);text-align:right}
+.cartefoot{font-size:.85rem;color:var(--mute);border-top:1px solid var(--hair);padding-top:.8rem;margin:.9rem 0 0}
+.cartelink{display:inline-block;margin-top:.5rem;font-family:var(--mono);font-weight:700;font-size:.86rem;color:var(--bordeaux);text-decoration:none;letter-spacing:.04em}
+.cartelink:hover{color:var(--ink3);text-decoration:underline}
+.whatis{min-width:0}
+.whatis h2{font-size:clamp(1.6rem,4vw,2.2rem)}
+ul.pillars{list-style:none;margin:1.1rem 0 0;padding:0}
+ul.pillars li{padding:.65rem 0 .65rem 1.2rem;border-bottom:1px solid var(--hair);color:var(--ink2);position:relative}
+ul.pillars li::before{content:"◆";position:absolute;left:0;top:.72rem;color:var(--or);font-size:.7em}
+ul.pillars li:last-child{border-bottom:none}
+ul.pillars b{color:var(--ink)}
+
+/* quote band — bordeaux slab */
+.quoteband{background:var(--bordeaux);color:var(--creme);padding:clamp(2.2rem,6vw,3.8rem) clamp(1rem,4vw,2.5rem)}
+.quoteband blockquote{max-width:900px;margin:0 auto;padding:0;border:none}
+.quoteband blockquote p{font-family:var(--serif);font-size:clamp(1.35rem,3.4vw,2rem);line-height:1.4;margin:0 0 .8rem}
+.quoteband cite{font-family:var(--mono);font-style:normal;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:#e6c9a4}
+.quoteband.hasnote{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(1.4rem,4vw,2.6rem);max-width:1150px;margin:0 auto}
+.quoteband.hasnote blockquote{max-width:none;margin:0}
+.quotenote{background:rgba(247,241,228,.1);border:1px solid rgba(247,241,228,.25);border-radius:4px;padding:1.2rem 1.4rem;min-width:0;align-self:center}
+.quotenote h2{color:var(--creme);font-size:1.4rem}
+.quotenote p{color:#f0e6d2;font-size:.98rem}
+.quotenote .fineprint{color:#dcc9a6}
+
+/* home cards */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2rem);padding:clamp(2.2rem,6vw,3.8rem) clamp(1rem,4vw,2.5rem);max-width:1150px;margin:0 auto}
+.cardcard{background:var(--paper);border-top:3px solid var(--or);box-shadow:0 0 0 1px var(--hair);padding:1.2rem 1.3rem 1.1rem;min-width:0}
+.cardcard h3{font-size:1.28rem;color:var(--bordeaux)}
+.cardcard p{color:var(--ink2);font-size:.97rem;margin:0}
+
+/* shared page chrome */
+.pagehead{padding:clamp(2.4rem,7vw,4.4rem) clamp(1rem,4vw,2.5rem) clamp(1.2rem,3vw,2.2rem);max-width:1150px;margin:0 auto}
+.pagehead.narrow{max-width:780px}
+.pagehead.center{text-align:center}
+.pagehead h1{font-size:clamp(2.5rem,8vw,4.6rem);letter-spacing:.02em;padding-left:.06em}
+.pagehead .lead{margin:0;max-width:42rem;margin-inline:auto}
+.pagehead.center .lead{margin-left:auto;margin-right:auto}
+.fineprint{font-size:.85rem;color:var(--mute)}
+section.homecta{text-align:center;padding:clamp(2.4rem,7vw,4.4rem) clamp(1rem,4vw,2.5rem);max-width:900px;margin:0 auto}
+.homecta h2{font-size:clamp(1.9rem,5.4vw,3rem)}
+.homecta p{color:var(--ink2)}
+.homecta .cta{justify-content:center}
+
+/* menu sections */
+.menusection{padding:clamp(1.4rem,4vw,2.6rem) clamp(1rem,4vw,2.5rem);max-width:1150px;margin:0 auto}
+.menusection h2{font-size:clamp(1.6rem,4.4vw,2.3rem);border-bottom:1px solid var(--hair);padding-bottom:.5rem}
+.sectionnote{color:var(--mute);font-size:.95rem;margin:.3rem 0 1rem}
+ul.menurows{list-style:none;margin:0;padding:0}
+ul.menurows li{display:flex;align-items:baseline;gap:.7rem;padding:.6rem 0;border-bottom:1px dashed var(--hair);min-width:0}
+.mname{flex:0 1 auto;font-family:var(--serif);font-weight:700;font-size:1.12rem;color:var(--ink)}
+ul.menurows i{flex:1 1 40px;min-width:12px;border-bottom:2px dotted var(--hair);transform:translateY(-4px)}
+.mdesc{flex:0 1 46%;min-width:0;color:var(--ink2);font-size:.93rem;text-align:right}
+.menufine{border-top:3px double var(--or);margin:clamp(1.6rem,4vw,2.6rem) clamp(1rem,4vw,2.5rem);padding-top:1.2rem;max-width:1150px;margin-left:auto;margin-right:auto}
+
+/* story */
+.storygrid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(1.6rem,4vw,3rem);padding:clamp(1.4rem,4vw,2.6rem) clamp(1rem,4vw,2.5rem);max-width:1150px;margin:0 auto;align-items:start}
+.prose{min-width:0}
+.prose h2{font-size:1.5rem;color:var(--bordeaux);margin-top:1.4rem}
+.prose h2:first-child{margin-top:0}
+.prose p{color:var(--ink2)}
+.pressbox{background:var(--paper);border:1px solid var(--or);outline:5px solid var(--paper);box-shadow:0 0 0 1px var(--or);padding:1.2rem 1.3rem;min-width:0}
+.pressbox h2{font-size:1.15rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink)}
+ul.presslist{list-style:none;margin:0;padding:0;font-size:.93rem}
+ul.presslist li{padding:.55rem 0;border-bottom:1px dashed var(--hair);color:var(--ink2)}
+ul.presslist li:last-child{border-bottom:none}
+.pressbox .fineprint{margin-top:.9rem}
+
+/* faq */
+.menufaq{padding:clamp(1.4rem,4vw,2.4rem) clamp(1rem,4vw,2.5rem);max-width:1150px;margin:0 auto}
+.menufaq h2{font-size:1.6rem}
+.menufaq dl{margin:0}
+.menufaq dt{font-family:var(--serif);font-weight:700;font-size:1.12rem;color:var(--bordeaux);margin-top:1.1rem}
+.menufaq dd{margin:.3rem 0 0;color:var(--ink2)}
+
+/* visit */
+.visitgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.6rem,4vw,3rem);padding:0 clamp(1rem,4vw,2.5rem) clamp(2.4rem,6vw,4rem);max-width:1150px;margin:0 auto;align-items:start}
+.visitinfo{min-width:0}
+.visitinfo h2{font-size:1.35rem;color:var(--bordeaux);text-transform:uppercase;letter-spacing:.08em;margin-top:1.5rem}
+.visitinfo h2:first-child{margin-top:0}
+.visitinfo ul{padding-left:1.1rem;color:var(--ink2)}
+address.bigaddr{font-family:var(--serif);font-size:1.3rem;line-height:1.35;color:var(--ink);margin:.4rem 0 .8rem}
+.visitinfo p{color:var(--ink2)}
+.visitmap{min-width:0}
+.mapbox{border:1px solid var(--or);outline:5px solid var(--paper);box-shadow:0 0 0 1px var(--or);padding:0;aspect-ratio:4/3;background:var(--creme2)}
+.mapbox iframe{width:100%;height:100%;border:0;display:block}
+.visitmap .fineprint{margin-top:.7rem}
+
+/* contact */
+.contactgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(1.6rem,4vw,3rem);padding:0 clamp(1rem,4vw,2.5rem) clamp(2.4rem,6vw,4rem);max-width:1150px;margin:0 auto;align-items:start}
+form.cform{background:var(--paper);border:1px solid var(--or);outline:5px solid var(--paper);box-shadow:0 0 0 1px var(--or);padding:1.4rem 1.5rem;min-width:0}
+form.cform h2{font-size:1.3rem}
+form.cform p{margin:0 0 1rem}
+form.cform label{display:block;font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mute);margin-bottom:.35rem}
+form.cform input,form.cform textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--hair);border-radius:2px;background:var(--creme);font:inherit;color:var(--ink)}
+form.cform input:focus,form.cform textarea:focus{outline:2px solid var(--or);border-color:var(--or)}
+.cinfo{min-width:0}
+.cinfo h2{font-size:1.35rem;color:var(--bordeaux);text-transform:uppercase;letter-spacing:.08em}
+p.clabel{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;color:var(--mute);margin:1.2rem 0 .2rem}
+p.cbig{margin:0 0 .2rem;font-family:var(--serif);font-size:1.3rem;word-break:break-word}
+p.cfine{color:var(--mute);font-size:.88rem;margin:0 0 .6rem}
+
+/* footer — espresso band */
+footer.site{background:var(--noir);color:var(--creme2);border-top:3px double var(--or);margin-top:clamp(1rem,4vw,2rem)}
+.footgrid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.4rem,4vw,3rem);max-width:1150px;margin:0 auto;padding:clamp(1.8rem,5vw,3rem) clamp(1rem,4vw,2.5rem) 1rem;align-items:start}
+.fbrand{font-family:var(--serif);font-size:1.3rem;letter-spacing:.14em;margin:0 0 .5rem;color:var(--creme)}
+.footnap address{color:var(--creme2);margin-bottom:.5rem}
+.footnap .fmail{margin:0 0 .5rem}
+.footnap .fmail a{color:var(--or);word-break:break-word}
+.footnap .ffamily{color:var(--mute);font-size:.9rem;margin:0}
+.footnap .ffamily a{color:var(--or)}
+.goldrule{height:2px;width:96px;background:var(--or);margin:0 0 1rem}
+p.fline{font-family:var(--serif);font-style:italic;font-size:1.22rem;line-height:1.35;color:var(--creme);margin:0 0 .8rem}
+p.fline2{color:var(--mute);font-size:.88rem;margin:0}
+p.footline{text-align:center;color:#8a7a61;font-family:var(--mono);font-size:.76rem;letter-spacing:.12em;border-top:1px solid #3a2f24;padding:.9rem clamp(1rem,4vw,2.5rem) 1.2rem;margin:0}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .grid3{grid-template-columns:1fr 1fr}
+  .storygrid,.visitgrid{grid-template-columns:1fr}
+  .carteband{grid-template-columns:1fr}
+  .quoteband.hasnote{grid-template-columns:1fr}
+  .menudesc-hide{display:none}
+}
+@media (max-width:840px){
+  .footgrid{grid-template-columns:1fr}
+  .contactgrid{grid-template-columns:1fr}
+  .navbtn{display:block}
+  nav.links{display:none}
+  .navtoggle:checked ~ nav.links{display:flex;flex-direction:column;align-items:flex-start;gap:.2rem;position:absolute;top:100%;left:0;right:0;background:var(--paper);border-bottom:3px double var(--or);padding:1rem clamp(1rem,4vw,2.5rem) 1.2rem;box-shadow:0 14px 24px rgba(66,49,28,.15);z-index:40}
+  .navtoggle:checked ~ nav.links a{padding:.55rem 0;width:100%}
+}
+@media (max-width:680px){
+  .grid3{grid-template-columns:1fr}
+  ul.menurows li{flex-wrap:wrap}
+  .mdesc{text-align:left;width:100%}
+  ul.menurows i{display:none}
+}
+@media (max-width:540px){
+  ul.crows b{display:block;flex-basis:100%;text-align:left;margin-top:.15rem}
+  ul.crows i{display:none}
+  ul.crows li{padding:.55rem 0}
+  .stamp{position:static;display:inline-block;transform:none;margin:1.2rem auto 0}
+  .hero .cta{justify-content:center}
+  .brand{letter-spacing:.2em}
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jeyas-cafe-patisserie-demo.up.railway.app/sitemap.xml
